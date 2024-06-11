@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 // Get all items
 app.get("/api/items", async (req, res) => {
   try {
-    const items = await Item.find();
+    const items = await Item.findOne();
     res.json(items);
   } catch (err) {
     res.status(500).json({ message: err.message });

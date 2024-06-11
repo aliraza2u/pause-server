@@ -12,10 +12,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect("mongodb+srv://raza8r:123543raza@auth.mxunx1w.mongodb.net", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect("mongodb+srv://raza8r:123543raza@auth.mxunx1w.mongodb.net")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
@@ -36,6 +33,9 @@ const itemSchema = new mongoose.Schema({
 const Item = mongoose.model("Item", itemSchema);
 
 // Routes
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 // Get all items
 app.get("/api/items", async (req, res) => {
